@@ -56,4 +56,13 @@ public class RacingGameTest {
         car.move(random);
         assertThat(car.getPosition()).isEqualTo(position);
     }
+
+    @ParameterizedTest
+    @DisplayName("자동차의 상태를 출력한다.")
+    @CsvSource(value = {"0:-", "1:-", "3:-", "4:--", "9:--"}, delimiter = ':')
+    void testPrint(int random, String expected) {
+        RacingGame.Car car = new RacingGame.Car();
+        car.move(random);
+        assertThat(car.toString()).isEqualTo(expected);
+    }
 }

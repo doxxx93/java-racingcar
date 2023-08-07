@@ -31,6 +31,12 @@ public class RacingGame {
         System.out.println("시도할 회수는 몇 회 인가요?");
         numOfRounds = Integer.parseInt(br.readLine());
         getInput(numOfCars, numOfRounds);
+        createCars();
+        System.out.println("실행 결과");
+        for (int i = 0; i < numOfRounds; i++) {
+            moveCars();
+            printCarsState();
+        }
     }
 
     public RacingGame() {
@@ -69,6 +75,13 @@ public class RacingGame {
         }
     }
 
+    public void printCarsState() {
+        for (Car car : cars) {
+            System.out.println(car);
+        }
+        System.out.println();
+    }
+
     public static class Car {
         private int position;
 
@@ -84,6 +97,11 @@ public class RacingGame {
 
         public int getPosition() {
             return position;
+        }
+
+        @Override
+        public String toString() {
+            return "-".repeat(Math.max(1, position));
         }
     }
 }
