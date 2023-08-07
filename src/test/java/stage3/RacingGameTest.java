@@ -29,5 +29,11 @@ public class RacingGameTest {
         assertThat(racingGame.getNumOfRounds()).isEqualTo(5);
     }
 
-
+    @Test
+    @DisplayName("입력 받은 자동차의 수만큼 자동차를 생성한다.")
+    void testCreateCars() {
+        racingGame.getInput(3, 5);
+        racingGame.createCars();
+        assertThat(racingGame.getCars().size()).isEqualTo(3);
+    }
 }

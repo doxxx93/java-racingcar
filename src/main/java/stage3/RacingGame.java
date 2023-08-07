@@ -3,11 +3,15 @@ package stage3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
 
     private int numOfCars;
     private int numOfRounds;
+
+    List<Car> cars = new ArrayList<>();
 
     public static void main(String[] args) {
         try {
@@ -44,5 +48,23 @@ public class RacingGame {
 
     public int getNumOfRounds() {
         return numOfRounds;
+    }
+
+    public void createCars() {
+        for (int i = 0; i < numOfCars; i++) {
+            cars.add(new Car());
+        }
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public class Car {
+        private int position;
+
+        public Car() {
+            position = 1;
+        }
     }
 }
