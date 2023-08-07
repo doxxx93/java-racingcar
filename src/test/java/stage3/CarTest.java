@@ -14,8 +14,8 @@ class CarTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"1,1", "3,1", "4,2", "9,2"})
-    void move( int input, int expected) {
+    @CsvSource(value = {"1,0", "3,0", "4,1", "9,1"})
+    void move(int input, int expected) {
         Car car = Car.newCar();
         car.move(input);
         assertThat(car.getPosition()).isEqualTo(expected);

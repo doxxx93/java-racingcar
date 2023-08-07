@@ -2,7 +2,7 @@ package stage3;
 
 public class Car {
     private int position;
-    public static final int DEFAULT_POSITION = 1;
+    public static final int DEFAULT_POSITION = 0;
 
     private Car(int position) {
         this.position = position;

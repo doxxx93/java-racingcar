@@ -24,7 +24,7 @@ public class RacingGameTest {
 
     @ParameterizedTest
     @DisplayName("자동차가 이동하거나 움직이지 않는다.")
-    @CsvSource(value = {"0:1", "3:1", "4:2", "9:2"}, delimiter = ':')
+    @CsvSource(value = {"0:0", "3:0", "4:1", "9:1"}, delimiter = ':')
     void testMove(int random, int position) {
         Car car = Car.newCar();
         car.move(random);
@@ -33,10 +33,10 @@ public class RacingGameTest {
 
     @ParameterizedTest
     @DisplayName("자동차의 상태를 출력한다.")
-    @CsvSource(value = {"0:-", "1:-", "3:-", "4:--", "9:--"}, delimiter = ':')
-    void testPrint(int random, String expected) {
+    @CsvSource(value = {"0:0", "1:0", "3:0", "4:1", "9:1"}, delimiter = ':')
+    void testPrint(int random, int expected) {
         Car car = Car.newCar();
         car.move(random);
-        assertThat(car.toString()).isEqualTo(expected);
+        assertThat(car.toString()).isEqualTo("-".repeat(expected));
     }
 }
