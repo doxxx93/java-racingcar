@@ -3,6 +3,8 @@ package stage3;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,5 +37,23 @@ public class RacingGameTest {
         racingGame.getInput(3, 5);
         racingGame.createCars();
         assertThat(racingGame.getCars().size()).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("자동차를 이동시킨다.")
+    void testMoveCars() {
+        racingGame.getInput(3, 5);
+        racingGame.createCars();
+        racingGame.moveCars();
+        assertThat(racingGame.getCars()).allMatch(car -> car.getPosition() >= 1 && car.getPosition() <= 6);
+    }
+
+    @ParameterizedTest
+    @DisplayName("자동차가 이동하거나 움직이지 않는다.")
+    @CsvSource(value = {"0:1", "3:1", "4:2", "9:2"}, delimiter = ':')
+    void testMove(int random, int position) {
+        RacingGame.Car car = new RacingGame.Car();
+        car.move(random);
+        assertThat(car.getPosition()).isEqualTo(position);
     }
 }

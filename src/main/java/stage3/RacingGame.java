@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RacingGame {
 
@@ -60,11 +61,29 @@ public class RacingGame {
         return cars;
     }
 
-    public class Car {
+    public void moveCars() {
+        for (int i = 0; i < numOfRounds; i++) {
+            for (Car car : cars) {
+                car.move(new Random().nextInt(10));
+            }
+        }
+    }
+
+    public static class Car {
         private int position;
 
         public Car() {
             position = 1;
+        }
+
+        public void move(int randomNum) {
+            if (randomNum >= 4) {
+                position++;
+            }
+        }
+
+        public int getPosition() {
+            return position;
         }
     }
 }
