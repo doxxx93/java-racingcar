@@ -39,4 +39,22 @@ public class Cars {
         }
         return sb.toString();
     }
+
+
+    public String getWinner() {
+        int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Car car : cars) {
+            if (car.getPosition() == max) {
+                sb.append(car.getName());
+                sb.append(", ");
+            }
+        }
+        sb.delete(sb.length() - 2, sb.length());
+        return sb.toString();
+    }
 }

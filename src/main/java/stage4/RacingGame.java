@@ -18,6 +18,7 @@ public class RacingGame {
             playRound();
             ResultView.printCarsState(cars);
         }
+        ResultView.printWinners(cars);
     }
 
     private void playRound() {
