@@ -18,3 +18,5 @@
 - 3단계 [stage 3.md](docs/stage_3.md)
     - 기능 목록 [README.md](src/main/java/stage3/README.md)
     - 실행 결과 [RESULT.md](src/main/java/stage3/result.md)
+- 4단계 [stage 4.md](docs/stage_4.md)
+    - 기능 목록 [README.md](src/main/java/stage4/README.md)
